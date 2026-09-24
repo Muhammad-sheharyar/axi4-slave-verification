@@ -55,4 +55,4 @@ vcs -sverilog testbench_top.sv axi_slave.sv -full64 -debug_all
 
 ## AXI4 Slave Block Diagram
 
-![AXI4 Slave](images/axi_slave_block.png)
+![AXI4 Slave](axi_slave_block.png)
