@@ -1,6 +1,6 @@
-# AXI4-Full Slave Verification (WRAP + FIXED)
+# AXI4-Full Slave Verification (FIXED Burst)
 
-SystemVerilog layered testbench for verifying an AXI4-Full slave supporting FIXED and WRAP burst modes, following the AMBA AXI4 specification (ARM IHI 0022E).
+SystemVerilog layered testbench for verifying an AXI4-Full slave supporting FIXED burst modes, following the AMBA AXI4 specification (ARM IHI 0022E).
 
 ## Project Overview
 
@@ -56,3 +56,24 @@ vcs -sverilog testbench_top.sv axi_slave.sv -full64 -debug_all
 ## AXI4 Master-Slave Block Diagram
 
 ![AXI4 Slave](axi_slave_5_channels.png)
+
+## DUT Bugs Found & Fixed
+
+During verification, **11 DUT bugs** were found and fixed. Full details in 
+[docs/DUT_Bugs.md](axi_design_bugs.docs).
+
+### Summary
+
+| # | Stage | Bug | Fix |
+|---|---|---|---|
+| 1 | Stage 2 | `always_comb` with `mem` init — VCS compile error | Moved init to reset block |
+| 2 | Stage 2 | AW signals not latched | Latched all AW fields on handshake |
+| 3 | Stage 2 | `wlen_count` combinational feedback loop | Moved to `always_ff` with `_next` |
+| 4 | Stage 2 | `wready` deasserted on `wlast` | Held `wready` through handshake |
+| 5 | Stage 2 | `widle` did not check `wvalid` | Added `wvalid && !wlast` guard |
+| 6 | Stage 3 | `wready` NBA race | Made combinational |
+| 7 | Stage 3 | `bvalid` priority conflict | Added `bready && bvalid` guard |
+| 8 | Stage 3 | `wcur_addr` race at last beat | Captured in `W_IDLE` |
+| 9 | Stage 4 | Single-byte read replication | Added byte-wise `read_beat()` |
+| 10 | Stage 4 | FIXED burst address increment | Added burst-type case |
+| 11 | Stage 4 | WRAP burst did not wrap | Added wrap boundary logic |
