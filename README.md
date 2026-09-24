@@ -53,6 +53,6 @@ vcs -sverilog testbench_top.sv axi_slave.sv -full64 -debug_all
 
 ![Layered Testbench](LayerTest_bench.png)
 
-## AXI4 Slave Block Diagram
+## AXI4 Master-Slave Block Diagram
 
-![AXI4 Slave](axi_slave_block.png)
+![AXI4 Slave](axi_slave_5_channels.png)
