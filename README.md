@@ -51,7 +51,7 @@ vcs -sverilog testbench_top.sv axi_slave.sv -full64 -debug_all
 
 ## Layered Testbench Architecture
 
-![Layered Testbench](LayerTest_Bench)
+![Layered Testbench](LayerTest_bench.png)
 
 ## AXI4 Slave Block Diagram
 
