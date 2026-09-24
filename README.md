@@ -47,9 +47,11 @@ SystemVerilog layered testbench for verifying an AXI4-Full slave supporting FIXE
 vcs -sverilog testbench_top.sv axi_slave.sv -full64 -debug_all
 ./simv
 
+```
+
 ## Layered Testbench Architecture
 
-![Layered Testbench](images/layered_tb.png)
+![Layered Testbench](images/layered_tb)
 
 ## AXI4 Slave Block Diagram
 
