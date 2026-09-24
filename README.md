@@ -60,8 +60,8 @@ vcs -sverilog testbench_top.sv axi_slave.sv -full64 -debug_all
 ## DUT Bugs Found & Fixed
 
 During verification, **11 DUT bugs** were found and fixed. Full details in 
-📄 [Download Full (PDF)](axi_design_bugs.pdf)
-📖 [Read Online (Markdown)](axi_design_bugs.md)
+📄 [Download Full (PDF)](docs/axi_design_bugs.pdf)
+📖 [Read Online (Markdown)](docs/axi_design_bugs.md)
 
 ### Summary
 
